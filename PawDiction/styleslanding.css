@@ -1,0 +1,303 @@
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #002B5B;
+	color: white;
+	font-family: 'Poppins';
+	margin: 0;
+  width: 100%;
+  max-width: 1320px;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.logo {
+  width: max(100px, 18vw);
+  padding: 0.4rem;
+}
+.navbar{
+  width: 60%;
+  margin: auto;
+  padding: 10px, 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+}
+
+ul{
+  margin-right: 0px;
+  width: 300px;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar ul li{
+  list-style: none;
+  display: inline-block;
+  margin: 0, 20px;
+  position: relative;
+}
+
+.navbar ul li a{
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.navbar ul li::after{
+  content: '';
+  height: 3px;
+  width: 0;
+  background: #2FB9C1;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transition: 0.5s;
+}
+
+.navbar ul li:hover::after{
+  width: 100%;
+}
+
+.navbar ul li a:active{
+  color: #2FB9C1
+}
+
+h1, h3 {
+  margin: 0 20px;
+  font-weight: 800;
+}
+
+h3{
+  font-size: 2rem;
+  letter-spacing: 7px;
+}
+
+h1{
+  font-size: 6rem;
+  margin-right: 500px;
+  letter-spacing: 5px;
+}
+
+#dog{
+  position: absolute;
+  width: 300px;
+  height: 450px;
+  left: 970px;
+  top: 80px;
+  z-index: 4;
+}
+
+#shadow{
+  position: absolute;
+  width: 300px;
+  height: 105px;
+  border-radius: 100%;
+  left: 965px;
+  top: 422px;
+  background: rgba(5, 5, 5, 0.1);
+  z-index: 3;
+}
+
+#circle{
+  border-radius: 100%;
+  position: absolute;
+  width: 800px;
+  height: 650px;
+  transform: rotate(-25deg);
+  left: 750px;
+  top: -65px;
+  background: #FFFFFF;
+  z-index: 2;
+}
+
+.options{
+  width:  40%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button{
+  width: 200px;
+  padding: 15px 0;
+  text-align: center;
+  margin: 20px 10px;
+  border-radius: 25px;
+  border: 2px solid #2FB9C1;
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#contactus{
+  margin-left: 100px;
+}
+
+#start{
+  background: #2FB9C1;
+}
+
+#start:hover, #contactus:hover, #start:active, #contactus:active{
+  border-color: white;
+}
+
+.home, .about, .help, .contact{
+  height: 100vh;
+  padding-top: 60px;
+}
+
+.about > p, .help > p, .contact > p{
+  font-size: 20px;
+  margin: 0 200px;
+  text-align: justify;
+}
+
+.about > h1, .help > h1, .contact > h1{
+  font-weight: 900px;
+  text-align: center;
+  margin: auto;
+  padding-bottom: 25px;
+}
+
+@media (max-width: 375px) {
+  body{
+    overflow-x: hidden;
+    width: 375px;
+  }
+  .navbar{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 375px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+  }
+
+  .navbar > .logo{
+    width: max(375px, 0vw);
+  }
+
+  ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+  }
+
+  li{
+    margin-bottom: 25px;
+  }
+
+  .home, .about, .help, .contact{
+    display: flex;
+    flex-direction: column;
+    width: 375px;
+    height: 100vh;
+    padding-top: 15px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .about > h1, .help > h1, .contact > h1{
+    font-weight: 500;
+    font-size: 2.5em;
+    margin: 0;
+    padding: 0;
+  }
+
+  .about > p, .help > p, .contact > p{
+    font-size: .9em;
+    margin: 30px;
+    text-align: justify;
+  }
+
+  .home > h1, .home > h3{
+    visibility: hidden;
+  }
+
+  #dog{
+    position: flex;
+    flex-direction: end;
+    width: 300px;
+    height: 430px;
+    left: 30px;
+    top: 70px;
+    z-index: 1;
+  }
+
+  #shadow{
+    position: absolute;
+    width: 270px;
+    height: 85px;
+    border-radius: 100%;
+    left: 40px;
+    top: 415px;
+    transform: rotate(-2deg);
+    background: rgba(5, 5, 5, 0.10);
+    z-index: -1;
+  }
+
+  #circle{
+    border-radius: 100%;
+    position: absolute;
+    width: 600px;
+    height: 350px;
+    left: -15px;
+    top: 130px;
+    background: #FFFFFF;
+    z-index: -2;
+    transform: rotate(-25deg);
+  }
+
+  #contactus{
+    margin-left: auto;
+  }
+
+  .options{
+    position: absolute;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    left: 25%;
+    top: 78%;
+    z-index: 3
+  }
+
+  button{
+    margin: 5px 0px;
+  }
+
+}
+
+  @media (max-width: 1270px) {
+    .navbar{
+      width: 60%;
+    }
+
+    #dog{
+    width: 300px;
+    height: 430px;
+    left: 950px;
+    top: 70px;
+  }

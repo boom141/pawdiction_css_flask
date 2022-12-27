@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="PawDiction: Dog Emotion Prediction" />
+    <title>PawDiction</title>
+    <link rel="stylesheet" href="stylesstart.css" />
+    <link rel="stylesheet" type="text/css" href="result-page.css">
+  </head>
+  <body>
+  	<header>
+      <div class="navbar">
+        <img class="logo" src="logo.png" alt="pawdiction logo">
+          <ul>
+            <li><a href="landing.html">HOME</a></li>
+  		    </ul>
+      </div>
+  	</header>
+    <div class="card-body">
+      <div class="loading-wrapper">   
+        <div class="wrapper">
+            <div class="paw paw-print-1">
+                <img src="paw.png" alt="">
+            </div><div class="paw"></div>
+            
+            <div class="paw paw-print-3">
+                <img src="paw.png" alt="">
+            </div><div class="paw"></div>
+
+            <div class="paw paw-print-5">
+                <img src="paw.png" alt="">
+            </div><div class="paw"></div>
+            
+            <div class="paw paw-print-6">
+                <img src="paw.png" alt="">
+            </div><div class="paw"></div>
+              
+            <div class="paw paw-print-4">
+                <img src="paw.png" alt="">
+            </div><div class="paw"></div>
+        </div>
+    </div>
+      <div class="form">
+          <video id="video" width="500" height="400" autoplay playsinline></video>
+          <canvas id="canvas" width="500" height="400"></canvas>       
+      </div>
+      <div class="options">
+          <input type="file" id="upload" value="upload" accept="image/*">
+          <label for="upload" class="upload"><img class="icon" src="upload.png" alt="upload icon">UPLOAD IMAGE</label>
+          <button id="predict" value="predict"> <img class="icon" src="predict.png" alt="star icon">PREDICT</button>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="request-data-upload.js"></script>
+  </body>
+</html>
