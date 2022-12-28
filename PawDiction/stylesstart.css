@@ -29,6 +29,49 @@ body {
   overflow: hidden;
 }
 
+.result-section{
+  height: 100%;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.emotion-container{
+  background-color: #003c81;
+  width: 30rem;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0  .5rem .5rem rgba(0, 0, 0, 0.653);
+  margin-top: 1rem;
+}
+
+.meter-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 1rem;
+}
+
+.actual-meter{
+  background: #ffffff;
+  inset: 0;
+  width: 0%;
+  height: 100%;
+  transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1)
+}
+
+.result-text{
+  margin-top: 1.5rem;
+}
+
 .navbar{
   width: 100%;
   margin: auto;
@@ -90,6 +133,7 @@ ul{
   align-items: center;
   justify-content: center;
   background-size: cover;
+  background-position: center;
 }
 
 .form{
@@ -106,8 +150,6 @@ ul{
 
 .options{
   width: auto;
-  /* justify-content: center;
-  align-items: center; */
 }
 
 input[type="file"]{
@@ -145,7 +187,7 @@ label{
   width: 30px;
   height: 20px;
 }
-
+/* 
 @media (max-width: 360px) {
   .navbar > .logo{
     visibility: visible;
@@ -191,4 +233,4 @@ label{
     height: 30px;
     width: 257px;
   }
-}
+} */
