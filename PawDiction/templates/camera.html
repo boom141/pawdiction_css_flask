@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="PawDiction: Dog Emotion Prediction" />
+    <title>PawDiction</title>
+    <link rel="stylesheet" href="../templates/css/stylesstart.css" />
+  </head>
+  <body>
+  	<header>
+      <div class="navbar">
+        <img class="logo" src="../templates/static_images/logo.png" alt="pawdiction logo">
+          <ul>
+            <li><a href="../index.html">HOME</a></li>
+  		    </ul>
+      </div>
+  	</header>
+    <div class="form">
+        <video id="video" width="640" height="480" autoplay playsinline></video>
+        <canvas id="canvas" width="640" height="480"></canvas>       
+    </div>
+    <div class="options">
+        <button type="submit" id="snap" value="capture"><img class="icon" src="../templates/static_images/capture.png" alt="capture icon">CAPTURE IMAGE</button>
+        <a href="../templates/camera.html"><button type="submit" id="retake" value="retake"><img class="icon" src="../templates/static_images/retake.png" alt="retake icon">CAPTURE RETAKE</button></a>
+        <button onclick="predict()" id="predict" value="predict"> <img class="icon" src="../templates/static_images/predict.png" alt="star icon">PREDICT</button>
+    </div>
+  </body>
+  <script src="../templates/js/app.js"></script>
+    <script type="module">
+      var color = ["#FFFF00"];
+
+      document.querySelector("#snap").addEventListener("click",
+        function(){
+          document.querySelector("#canvas").style.background = color
+        })
+
+    </script>
+</html>

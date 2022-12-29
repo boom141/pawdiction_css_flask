@@ -1,0 +1,263 @@
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card-body{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background: #002B5B;
+	color: white;
+	font-family: 'Poppins';
+	margin: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.result-section{
+  height: 100%;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.emotion-container{
+  background-color: #003c81;
+  width: 30rem;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0  .5rem .5rem rgba(0, 0, 0, 0.653);
+  margin-top: 1rem;
+}
+
+.meter-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 1rem;
+}
+
+.actual-meter{
+  background: #ffffff;
+  inset: 0;
+  width: 0%;
+  height: 100%;
+  transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1)
+}
+
+.result-text{
+  margin-top: 1.5rem;
+}
+
+.navbar{
+  width: 100%;
+  margin: auto;
+  padding: 10px, 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: max(100px, 18vw);
+  padding: 0.4rem;
+}
+
+ul{
+  margin-right: 50px;
+  width: 100px;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar ul li{
+  list-style: none;
+  display: inline-block;
+  margin: 0, 20px;
+  position: relative;
+}
+
+.navbar ul li a{
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.navbar ul li::after{
+  content: '';
+  height: 3px;
+  width: 0;
+  background: #2FB9C1;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transition: 0.5s;
+}
+
+.navbar ul li:hover::after{
+  width: 100%;
+}
+
+.navbar ul li a:active{
+  color: #2FB9C1
+}
+
+#canvas{ 
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.form{
+  position: relative;
+  height: 400px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  border: 3px solid #2FB9C1;
+  border-radius: 10px;
+}
+
+.upload-loading{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: .5rem;
+  background-color: rgba(0, 0, 0, 0.558);
+  z-index: 5;
+}
+
+#video{
+  position: absolute;
+}
+
+.options{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="file"]{
+  display: none;
+}
+
+button, label{
+  margin: 10px 20px;
+  min-width: 220px;
+  padding: 10px 15px;
+  text-align: center;
+  background-color: white;
+  color: #002B5B;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+button{
+  background-color: rgba(255, 255, 255, 0.677);
+  pointer-events: none;
+}
+
+button:hover{
+  background-color: rgba(255, 255, 255, 0.677);
+}
+
+#snap:hover, #retake:hover, .upload:hover{
+  background-color: rgba(255, 255, 255, 0.677);
+}
+
+.icon{
+  position: relative;
+  padding-right: 15px;
+  top: 3px;
+  width: 30px;
+  height: 20px;
+}
+/* 
+@media (max-width: 360px) {
+  .navbar > .logo{
+    visibility: visible;
+    margin: 30px 0 0 5px;
+    width: max(200px, 28vw);
+  }
+
+
+  .navbar{
+    visibility: hidden;
+  }
+
+  .form{
+    top: 15%;
+    width: 350px;
+    margin-top: -70px;
+  }
+
+  video, #canvas{
+    width: 350px;
+  }
+
+  .options{
+    width:  80%;
+    height: 240px;
+    position: relative;
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  button{
+    margin: 10px 30px;
+    width: 100%;
+    top: 90%; 
+  }
+
+  label{
+    top: 30%;
+    position: absolute;
+    display: inline-block;
+    margin: 80px 30px;
+    height: 30px;
+    width: 257px;
+  }
+} */
