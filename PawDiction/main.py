@@ -1,3 +1,5 @@
+import os 
+from pathlib import Path
 import numpy as np
 import tensorflow as tf
 import tensorflow_hub as hub
@@ -12,7 +14,8 @@ CORS(app)
 
 api = Api(app)
 
-ALLOWED_EXTENSIONS = set(['jpg', 'png'])
+
+ALLOWED_EXTENSIONS = set(['jpg', 'png','webp'])
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -31,7 +34,7 @@ def read_image():
 
 def load_model(model_path):
     model = tf.keras.models.load_model(model_path,custom_objects={"KerasLayer": hub.KerasLayer})
-    
+
     return model
 
 def process_image(image_path, image_size=224):
@@ -49,40 +52,41 @@ def process_image(image_path, image_size=224):
 
     # Resize the image to our desired value (244, 244)
     image = tf.image.resize(image, size=(image_size, image_size))
-    
+
     return image
 
 def imageType_convert(image):
-    im1 = Image.open(image)
-    new_path_image = f'./images/target.jpg'
+    im1 = Image.open(image).convert('RGB')
+    new_path_image = './images/target.jpg'
     im1.save(new_path_image)
 
     return new_path_image
 
 class PredictEmotion(Resource):
-    def post(self):
+    def get(self):
         # Read image
-        image = read_image()
-        converted_image = imageType_convert(image)
+        target_image = './images/target.jpg'
+        file_verify = Path(target_image)
 
-        if converted_image:
+        if file_verify.is_file():
             # Process image
-            processed_image = process_image(converted_image, 224)
+            processed_image = process_image(target_image, 224)
             processed_image = converted_image = np.expand_dims(processed_image, axis=0)
-            
+
             # Load model
             model = load_model("saved_model.h5")
 
             # Predict the emotion of model
             prediction = np.round(model.predict(converted_image), 3)*100
 
+            os.remove(target_image)
 
 
             # Return response as list.
             return prediction[0].tolist()
         else:
             return "Please upload a valid image"
-
+ 
 class isADog(Resource):
     def post(self):
         # Read image
@@ -93,12 +97,14 @@ class isADog(Resource):
             # Process image
             processed_image = process_image(converted_image, 256)
             processed_image = converted_image = np.expand_dims(processed_image, axis=0)
-            
+
             # Load model
             model = load_model("Dogs-vs-Cats_model.h5")
 
             # Predict the emotion of model
             prediction = model.predict(converted_image)
+
+            os.remove(image)
 
             # Return response as list.
             return prediction[0].tolist()
@@ -113,4 +119,4 @@ def index():
     return "Hello World"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(debug=True)

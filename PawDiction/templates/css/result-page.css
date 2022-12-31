@@ -5,11 +5,18 @@
     box-sizing: border-box;
 }
 
+.card-body{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .loading-wrapper{
 	  width: 100%;
     height: 100%;
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;

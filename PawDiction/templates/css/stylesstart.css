@@ -127,6 +127,18 @@ ul{
   color: #2FB9C1
 }
 
+.upload-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 1rem 1rem;
+}
+
+
+
 #canvas{ 
   position: relative;
   display: flex;
