@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="PawDiction: Dog Emotion Prediction" />
+    <title>PawDiction</title>
+    <link rel="stylesheet" href="../templates/css/global.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/loadingio/loading.css@v2.0.0/dist/loading.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../templates/css/result-page.css">
+    <link rel="stylesheet" href="../templates/css/stylesstart.css" />
+  </head>
+  <body>
+  	<header>
+      <div class="navbar">
+        <img class="logo" src="../templates/static_images/logo.png" alt="pawdiction logo">
+          <ul>
+            <li><a href="../index.html">HOME</a></li>
+  		    </ul>
+      </div>
+  	</header>
+    <div class="card-body">
+      <div class="result-section">
+        <img class="header-logo" src="./static_images/Logo.png" alt="">
+        <div class="emotion-container">
+          <img style="padding: 1rem 1rem; background-color: #0314278a; border-top-left-radius: 10px; border-bottom-left-radius: 10px;"  src="https://img.icons8.com/fluency-systems-filled/50/FFFFFF/angry.png"/>
+          <div class="meter-container">
+            <div style="height: 1rem; width: 100%; background-color: rgba(255, 255, 255, 0.455); border-radius: 5px; position: relative;" class="meter">
+              <div class="actual-meter"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="emotion-container">
+          <img style="padding: 1rem 1rem; background-color: #0314278a; border-top-left-radius: 10px; border-bottom-left-radius: 10px;"  src="https://img.icons8.com/ios-filled/50/FFFFFF/lol--v1.png"/>
+          <div class="meter-container">
+            <div style="height: 1rem; width: 100%; background-color: rgba(255, 255, 255, 0.455); border-radius: 5px; position: relative;" class="meter">
+              <div class="actual-meter"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="emotion-container">
+          <img style="padding: 1rem 1rem; background-color: #0314278a; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" src="https://img.icons8.com/material-rounded/50/FFFFFF/happy--v1.png"/>
+          <div class="meter-container">
+            <div style="height: 1rem; width: 100%; background-color: rgba(255, 255, 255, 0.455); border-radius: 5px; position: relative;" class="meter">
+              <div class="actual-meter"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="emotion-container">
+          <img style="padding: 1rem 1rem; background-color: #0314278a; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" src="https://img.icons8.com/ios-filled/50/FFFFFF/sad.png"/>
+          <div class="meter-container">
+            <div style="height: 1rem; width: 100%; background-color: rgba(255, 255, 255, 0.455); border-radius: 5px; position: relative;" class="meter">
+              <div class="actual-meter"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="loading-wrapper">   
+        <div class="wrapper">
+            <div class="paw paw-print-1">
+                <img src="./static_images/paw.png" alt="">
+            </div><div class="paw"></div>
+            
+            <div class="paw paw-print-3">
+                <img src="./static_images/paw.png" alt="">
+            </div><div class="paw"></div>
+
+            <div class="paw paw-print-5">
+                <img src="./static_images/paw.png" alt="">
+            </div><div class="paw"></div>
+            
+            <div class="paw paw-print-6">
+                <img src="./static_images/paw.png" alt="">
+            </div><div class="paw"></div>
+              
+            <div class="paw paw-print-4">
+                <img src="./static_images/paw.png" alt="">
+            </div><div class="paw"></div>
+        </div>
+        <h2 style="margin-top: -3rem;">awaiting result....</h2>
+    </div>
+    <div class="camera-section">
+        <div class="form">
+          <video id="video" width="640" height="480" autoplay playsinline></video>
+          <canvas id="canvas" width="640" height="480"></canvas>      
+
+          <div class="camera-change">
+              <img src="https://img.icons8.com/ios/40/002B5B/change.png"/>
+          </div>
+          
+          <div class="upload-loading">
+            <div class="ld ld-wander-v"><img src="./static_images/paw.png" alt=""></div> 
+            <h3>verifying</h3>
+          </div>
+
+          <div class="alert-container">
+            <div class="alert alert-primary" role="alert">
+              <strong>Warning:</strong> Image might not be a picture of a dog <br>
+              Do you wish to:
+              <div style="margin-top: 10px" class="alert-option">
+                <h6 class="alert-btn btn btn-warning">Keep</h6>
+                <h6 class="alert-btn btn btn-danger">Discard</h6>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      <div class="options camera-options">
+          <button type="submit" id="snap" value="capture"><img class="icon" src="../templates/static_images/capture.png" alt="capture icon">CAPTURE IMAGE</button>
+          <button type="submit" id="retake" value="retake"><a href="../templates/camera.html" style="color: #002B5B; text-decoration: none;" ><img class="icon" src="../templates/static_images/retake.png" alt="retake icon">CAPTURE RETAKE</a></button>
+          <button id="predict" value="predict"> <img class="icon" src="../templates/static_images/predict.png" alt="star icon">PREDICT</button>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js" integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="../templates/js/camera.js"></script>
+  </body>
+  
+    <script type="module">
+      var color = ["#FFFF00"];
+
+      document.querySelector("#snap").addEventListener("click",
+        function(){
+          document.querySelector("#canvas").style.background = color
+        })
+
+    </script>
+</html>

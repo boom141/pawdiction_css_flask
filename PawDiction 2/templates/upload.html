@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="PawDiction: Dog Emotion Prediction" />
+    <title>PawDiction</title>
+    <link rel="stylesheet" href="../templates/css/global.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/loadingio/loading.css@v2.0.0/dist/loading.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../templates/css/result-page.css">
+    <link rel="stylesheet" href="../templates/css/stylesstart.css" />
+  </head>
+  <body>
+  	<header>
+      <div class="navbar">
+        <img class="logo" src="./static_images/Logo.png" alt="pawdiction logo">
+          <ul>
+            <li><a href="../index.html">HOME</a></li>
+  		    </ul>
+      </div>
+  	</header>
+    
+    <div class="card-body">
+      <div class="result-section">
+        <img class="header-logo" src="./static_images/Logo.png" alt="">
+        <div class="emotion-container">
+          <img style="padding: 1rem 1rem; background-color: #0314278a; border-top-left-radius: 10px; border-bottom-left-radius: 10px;"  src="https://img.icons8.com/fluency-systems-filled/50/FFFFFF/angry.png"/>
+          <div class="meter-container">
+            <div style="height: 1rem; width: 100%; background-color: rgba(255, 255, 255, 0.455); border-radius: 5px; position: relative;" class="meter">
+              <div class="actual-meter"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="emotion-container">
+          <img style="padding: 1rem 1rem; background-color: #0314278a; border-top-left-radius: 10px; border-bottom-left-radius: 10px;"  src="https://img.icons8.com/ios-filled/50/FFFFFF/lol--v1.png"/>
+          <div class="meter-container">
+            <div style="height: 1rem; width: 100%; background-color: rgba(255, 255, 255, 0.455); border-radius: 5px; position: relative;" class="meter">
+              <div class="actual-meter"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="emotion-container">
+          <img style="padding: 1rem 1rem; background-color: #0314278a; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" src="https://img.icons8.com/material-rounded/50/FFFFFF/happy--v1.png"/>
+          <div class="meter-container">
+            <div style="height: 1rem; width: 100%; background-color: rgba(255, 255, 255, 0.455); border-radius: 5px; position: relative;" class="meter">
+              <div class="actual-meter"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="emotion-container">
+          <img style="padding: 1rem 1rem; background-color: #0314278a; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" src="https://img.icons8.com/ios-filled/50/FFFFFF/sad.png"/>
+          <div class="meter-container">
+            <div style="height: 1rem; width: 100%; background-color: rgba(255, 255, 255, 0.455); border-radius: 5px; position: relative;" class="meter">
+              <div class="actual-meter"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="loading-wrapper">   
+        <div class="wrapper">
+            <div class="paw paw-print-1">
+                <img src="./static_images/paw.png" alt="">
+            </div><div class="paw"></div>
+            
+            <div class="paw paw-print-3">
+                <img src="./static_images/paw.png" alt="">
+            </div><div class="paw"></div>
+
+            <div class="paw paw-print-5">
+                <img src="./static_images/paw.png" alt="">
+            </div><div class="paw"></div>
+            
+            <div class="paw paw-print-6">
+                <img src="./static_images/paw.png" alt="">
+            </div><div class="paw"></div>
+              
+            <div class="paw paw-print-4">
+                <img src="./static_images/paw.png" alt="">
+            </div><div class="paw"></div>
+        </div>
+        <h2 style="margin-top: -3rem;">awaiting result....</h2>
+    </div>
+    <div class="upload-section">
+        <div class="form">
+            <canvas id="canvas"></canvas>
+            
+            <div class="upload-loading">
+              <div class="ld ld-wander-v"><img src="./static_images/paw.png" alt=""></div> 
+              <h3>verifying</h3>
+            </div>
+
+            <div class="alert-container">
+              <div class="alert alert-primary" role="alert">
+                <strong>Warning:</strong> Image might not be a picture of a dog <br>
+                Do you wish to:
+                <div style="margin-top: 10px" class="alert-option">
+                  <h6 class="alert-btn btn btn-warning">Keep</h6>
+                  <h6 class="alert-btn btn btn-danger">Discard</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="options">
+              <input type="file" id="upload" value="upload" accept="image/*">
+              <label for="upload" class="upload"><svg style="margin-right: 5px" width="16px" height="16px" viewBox="0 0 24 24" id="meteor-icon-kit__solid-upload" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 5.12132L7.06066 8.56066C6.47487 9.14645 5.52513 9.14645 4.93934 8.56066C4.35355 7.97487 4.35355 7.02513 4.93934 6.43934L10.9393 0.43934C11.5251 -0.146447 12.4749 -0.146447 13.0607 0.43934L19.0607 6.43934C19.6464 7.02513 19.6464 7.97487 19.0607 8.56066C18.4749 9.14645 17.5251 9.14645 16.9393 8.56066L13.5 5.12132V16.5C13.5 17.3284 12.8284 18 12 18C11.1716 18 10.5 17.3284 10.5 16.5V5.12132ZM21 21V17.5C21 16.6716 21.6716 16 22.5 16C23.3284 16 24 16.6716 24 17.5V22.5C24 23.3284 23.3284 24 22.5 24H1.5C0.671573 24 0 23.3284 0 22.5V17.5C0 16.6716 0.671573 16 1.5 16C2.32843 16 3 16.6716 3 17.5V21H21Z" fill="currentColor"/></svg> UPLOAD IMAGE</label>
+              <button id="predict" value="predict"><svg style="margin-right: 5px" width="16px" height="16px" viewBox="0 -0.5 24 24" id="meteor-icon-kit__solid-star" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.7998 22.3168C5.78902 22.7622 4.60854 22.3039 4.16313 21.2931C4.02364 20.9766 3.96864 20.6293 4.00348 20.2852L4.57592 14.6314L0.789612 10.3939C0.0536467 9.5702 0.124744 8.3059 0.948413 7.56994C1.20635 7.33946 1.51965 7.17983 1.85771 7.10662L7.41165 5.90394L10.2717 0.99348C10.8277 0.03901 12.0521 -0.284071 13.0066 0.27186C13.3054 0.44595 13.5541 0.69459 13.7282 0.99348L16.5883 5.90394L22.1422 7.10662C23.2217 7.3404 23.9074 8.40505 23.6736 9.4846C23.6004 9.8227 23.4408 10.136 23.2103 10.3939L19.424 14.6314L19.9964 20.2852C20.1077 21.3841 19.307 22.3652 18.2081 22.4765C17.8639 22.5113 17.5166 22.4563 17.2001 22.3168L12 20.0253L6.7998 22.3168z" fill="currentColor"/></svg>PREDICT</button>
+          </div>
+    </div>
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js" integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="../templates/js/upload.js"></script>
+  </body>
+</html>
